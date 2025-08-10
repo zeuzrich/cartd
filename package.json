@@ -1,0 +1,13 @@
+{
+  "name": "cartao-virtual",
+  "version": "1.0.0",
+  "description": "Cartão Virtual - Landing Page",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": ["cartao", "virtual", "landing-page"],
+  "author": "",
+  "license": "ISC"
+}
